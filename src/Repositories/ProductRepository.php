@@ -41,6 +41,10 @@ class ProductRepository {
                 '_id' => new ObjectId($id),
             ]);
 
+            if ($result === null) {
+                return null;
+            }
+
             return new ProductDto(
                 $result['name'],
                 $result['description'],
