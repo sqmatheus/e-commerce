@@ -1,0 +1,28 @@
+{
+    "name": "sqmatheus/ecommerce",
+    "description": "A simple e-commerce",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Sqmatheus\\Ecommerce\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "sqmatheus",
+            "email": "mathsales146@gmail.com"
+        }
+    ],
+    "require": {
+        "mongodb/mongodb": "^2.3",
+        "elasticsearch/elasticsearch": "^9.4",
+        "php-amqplib/php-amqplib": "^3.7",
+        "laudis/neo4j-php-client": "^3.5"
+    },
+    "config": {
+        "allow-plugins": {
+            "php-http/discovery": true
+        }
+    }
+}
