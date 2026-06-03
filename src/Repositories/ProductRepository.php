@@ -6,6 +6,8 @@ use MongoDB\BSON\ObjectId;
 use MongoDB\Client;
 use MongoDB\Collection;
 use Sqmatheus\Ecommerce\DTOs\CreateProductDto;
+use Sqmatheus\Ecommerce\DTOs\ProductDto;
+use Throwable;
 
 class ProductRepository {
 
@@ -31,6 +33,22 @@ class ProductRepository {
         ]);
 
         return $result->getInsertedId();
+    }
+
+    public function find(string $id): ?ProductDto {
+        try {
+            $result = $this->collection->findOne([
+                '_id' => new ObjectId($id),
+            ]);
+
+            return new ProductDto(
+                $result['name'],
+                $result['description'],
+                $result['price']
+            );
+        } catch (Throwable) {
+            return null;
+        }
     }
 
 }
