@@ -1,5 +1,5 @@
 <?php
 
-require_once __DIR__ . '/../vendor/autoload.php';
+require_once __DIR__ . '/../bootstrap.php';
 
-echo 'Hello World!';
+json_response(['error' => 'Not found'], 404);

@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
 }
 
 $userName = filter_input(INPUT_GET, 'user', FILTER_FLAG_EMPTY_STRING_NULL);
-if ($userName === null || empty($userName)) {
+if (empty($userName)) {
     json_response(['error' => 'Invalid user query param'], 422);
 }
 

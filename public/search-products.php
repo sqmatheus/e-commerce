@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
 }
 
 $searchTerm = filter_input(INPUT_GET, 'q', FILTER_FLAG_EMPTY_STRING_NULL);
-if ($searchTerm === null || empty($searchTerm)) {
+if (empty($searchTerm)) {
     json_response(['error' => 'Invalid search query param'], 422);
 }
 
