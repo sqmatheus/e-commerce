@@ -1,6 +1,7 @@
 <?php
 
 use Sqmatheus\Ecommerce\DTOs\BuyProductDto;
+use Sqmatheus\Ecommerce\Publishers\ProductPublisher;
 use Sqmatheus\Ecommerce\Repositories\ProductRepository;
 use Sqmatheus\Ecommerce\Services\ProductRelationshipService;
 
@@ -39,6 +40,9 @@ $product = $productRepository->find($dto->idProduct);
 if ($product === null) {
     json_response(['error' => 'Product not found'], 404);
 }
+
+$productPublisher = new ProductPublisher();
+$productPublisher->bought($dto);
 
 $productRelationshipService = new ProductRelationshipService();
 $productRelationshipService->createRelationProductUser($dto);
