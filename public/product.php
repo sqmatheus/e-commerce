@@ -8,7 +8,7 @@ use Sqmatheus\Ecommerce\Services\ProductSearchService;
 require_once __DIR__ . '/../bootstrap.php';
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    json_response(['error' => 'Method Not Allowed']);
+    json_response(['error' => 'Method Not Allowed'], 405);
 }
 
 $body = file_get_contents('php://input');
