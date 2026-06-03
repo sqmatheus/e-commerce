@@ -5,9 +5,3 @@ RUN apt-get update && apt-get install -y libssl-dev unzip pkg-config && pecl ins
 RUN docker-php-ext-install sockets
 
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
-
-COPY composer.json composer.lock ./
-
-RUN composer install --no-dev --optimize-autoloader
-
-COPY . .
