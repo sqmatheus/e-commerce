@@ -87,7 +87,7 @@ como um relacionamento no `Neo4J`. Além disso, uma mensagem deve ser enviada pa
 mensagens.
 
 ```
-POST /buy-product.php HTTP/1.1
+POST /buy-product.php
 
 {
     "id_product": "<id>",
