@@ -36,5 +36,21 @@ class ProductSearchService {
             ]
         ]);
     }
+
+    public function search(string $searchTerm): array {
+        $response = $this->client->search([
+            'index' => self::INDEX,
+            'type' => self::TYPE,
+            'body' => [
+                'query' => [
+                    'match' => [
+                        'name' => $searchTerm
+                    ]
+                ]
+            ]
+        ]);
+
+        return $response['hits']['hits'];
+    }
     
 }
